@@ -17,7 +17,7 @@
     <!-- start of first container-->
     <div class="container">
       <div class="weather-big-container">
-        <h1>City name</h1> </br>
+        <h1>City name</h1> 
         <div class="row">
           <div class="col-6">
             <ul>
@@ -30,13 +30,15 @@
             </ul>
           </div>
           <div class="col-6">
-            12 ˚C⎮˚F
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
-              alt="cloudy"
-              class="weathericone"
-            />
+          <div class="clearfix">
+            <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="float-left"
+                id="weatherIconCloudy" />
+              <div class="float-left">
+            <span id="temperature">56</span><span class="units"><a href="#" id="celsius-link" class="active">°C</a> |
+                <a href="#" id="fahrenheit-link">°F</a></span>
+            </div>
           </div>
+        </div>
           <div class="col-12">
             <ul>
               <li>

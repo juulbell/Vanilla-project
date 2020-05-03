@@ -47,7 +47,30 @@ ul {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 35px;
   font-weight: 100;
   line-height: 28px;
+}
+
+#temperature {
+  font-size: 50px;
+  color: black;
+  position: relative;
+  top: 25px;
+}
+
+.clearfix .units {
+  position: relative;
+  left: 2px;
+  font-size: 15px;
+}
+
+.clearfix {
+  margin-left: 10px;
+}
+
+.clearfix img {
+  margin: 10px;
+  position: relative;
+  top: 20px;
 }
