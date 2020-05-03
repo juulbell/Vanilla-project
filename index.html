@@ -3,38 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla-project🍦</title>
-    <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+    <title>Vanilla-project🍦</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <!-- start of first container-->
     <div class="container">
       <div class="weather-big-container">
-        <h1>City name</h1>
-        <ul>
-          <li>
-            Monday 24 April (19:30)
-          </li>
-          <li>
-            Clear sky
-          </li>
-        </ul>
-
+        <h1>City name</h1> </br>
         <div class="row">
           <div class="col-6">
             <ul>
               <li>
-                Humidity 30%
+                Monday 24 April (19:30)
               </li>
               <li>
-                Wind 30 km/h
+                Clear sky
               </li>
             </ul>
           </div>
@@ -46,74 +37,119 @@
               class="weathericone"
             />
           </div>
-          <!-- Search form -->
-          <form id="search-form" class="mb-3">
-            <div class="row">
-              <div class="col-9">
-                <input
-                  type="search"
-                  placeholder="Enter a city..."
-                  class="searchEntry"
-                  id="city-input"
-                  autocomplete="off"
-                />
-              </div>
-              <div class="col-3">
-                <input type="submit" value="Search" id="searchButton" />
-              </div>
-            </div>
-          </form>
-        </div>
-        <!-- Buttons to shift the background on the weather-big-container -->
-        <div class="buttonsBackgrounds">
-          <div class="row">
-            <div class="col-6">
-              <ul>
-                <li>
-                  <button id="morning" class="btn btn-outline-danger">
-                    Morning
-                  </button>
-                </li>
-                <li>
-                  <button id="day" class="btn btn-outline-danger">
-                    Day
-                  </button>
-                </li>
-                <li>
-                  <button id="night" class="btn btn-outline-danger">
-                    Night
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- small weather forcast container-->
-      <div class="weather-small-container">
-        <div class="row">
-          <div class="col-6">
+          <div class="col-12">
             <ul>
               <li>
-                Mon
+                Humidity 30%
               </li>
               <li>
-                Tue
-              </li>
-              <li>
-                Wed
-              </li>
-              <li>
-                Thu
-              </li>
-              <li>
-                Fri
-              </li>
-              <li>
-                Sat
+                Wind 30 km/h
               </li>
             </ul>
           </div>
+        </div>
+        <!-- Search form -->
+
+        <form id="search-form" class="mb-3">
+          <input
+            type="search"
+            placeholder="Enter a city..."
+            class="searchEntry"
+            id="city-input"
+            autocomplete="off"
+          />
+          <input type="submit" value="Search" id="searchButton" />
+        </form>
+      </div>
+      <!-- Buttons to shift the background on the weather-big-container -->
+      <div class="buttonsBackgrounds">
+        <div class="row">
+          <div class="col-4">
+            <button id="morning" class="btn btn-outline-danger w-100">
+              Morning
+            </button>
+          </div>
+          <div class="col-4">
+            <button id="day" class="btn btn-outline-danger w-100">
+              Day
+            </button>
+          </div>
+          <div class="col-4">
+            <button id="night" class="btn btn-outline-danger w-100">
+              Night
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- small weather forcast container-->
+      <div class="weather-small-container">
+          <div class="weekdays">
+          <ul class="d-flex justify-content-around">
+            <li class="col-2">
+              Mon
+            </li>
+              <li class="col-2">
+                Tue
+              </li>
+              <li class="col-2" >
+                Wed
+              </li>
+              <li class="col-2" >
+                Thu
+              </li>
+              <li class="col-2">
+                Fri
+              </li>
+              <li class="col-2">
+                Sat
+              </li>
+          </ul>
+        </div>
+        <div class="weekdaysWeatherIcons">
+            <ul class="d-flex justify-content-around">
+                <li class="col-2">
+                    <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="weathericone" />
+                </li>
+                <li class="col-2">
+                    <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="weathericone" />
+                </li>
+                <li class="col-2">
+                    <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="weathericone" />
+                </li>
+                <li class="col-2">
+                    <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="weathericone" />
+                </li>
+                <li class="col-2">
+                    <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="weathericone" />
+                </li>
+                <li class="col-2">
+                    <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="weathericone" />
+                </li>
+            </ul>
+        </div>
+        <div class="weekdaysTemp">
+        <ul class="d-flex justify-content-around">
+            <li class="col-2">
+                28˚
+            </li>
+            <li class="col-2">
+                28˚
+            </li>
+            <li class="col-2">
+                28˚
+            </li>
+            <li class="col-2">
+                28˚
+            </li>
+            <li class="col-2">
+                28˚
+            </li>
+            <li class="col-2">
+                28˚
+            </li>
+        </ul>
+        </div>
         </div>
       </div>
 
@@ -121,7 +157,7 @@
         <small>
           <a href="https://github.com/juulbell/Vanilla-project" target="_blank"
             >Open source Code</a
-          >, by Helene J.Belling</small
+          > (Github), by Helene J.Belling</small
         >
       </div>
     </div>
