@@ -5,8 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla-project🍦</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
-  <body></body>
+  <body>
+    <!-- start of first container-->
+    <div class="container">
+      <div class="weather-big-container">
+        <h1>City name</h1>
+        <ul>
+          <li>
+            Monday 24 April (19:30)
+          </li>
+          <li>
+            Clear sky
+          </li>
+        </ul>
+
+        <div class="row">
+          <div class="col-6">
+            <ul>
+              <li>
+                Humidity 30%
+              </li>
+              <li>
+                Wind 30 km/h
+              </li>
+            </ul>
+          </div>
+          <div class="col-6">
+            12 ˚C⎮˚F
+            <img
+              src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
+              alt="cloudy"
+              class="weathericone"
+            />
+          </div>
+          <!-- Search form -->
+          <form id="search-form" class="mb-3">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Enter a city..."
+                  class="searchEntry"
+                  id="city-input"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-3">
+                <input type="submit" value="Search" id="searchButton" />
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- Buttons to shift the background on the weather-big-container -->
+        <div class="buttonsBackgrounds">
+          <div class="row">
+            <div class="col-6">
+              <ul>
+                <li>
+                  <button id="morning" class="btn btn-outline-danger">
+                    Morning
+                  </button>
+                </li>
+                <li>
+                  <button id="day" class="btn btn-outline-danger">
+                    Day
+                  </button>
+                </li>
+                <li>
+                  <button id="night" class="btn btn-outline-danger">
+                    Night
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- small weather forcast container-->
+      <div class="weather-small-container">
+        <div class="row">
+          <div class="col-6">
+            <ul>
+              <li>
+                Mon
+              </li>
+              <li>
+                Tue
+              </li>
+              <li>
+                Wed
+              </li>
+              <li>
+                Thu
+              </li>
+              <li>
+                Fri
+              </li>
+              <li>
+                Sat
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="madeBy">
+        <small>
+          <a href="https://github.com/juulbell/Vanilla-project" target="_blank"
+            >Open source Code</a
+          >, by Helene J.Belling</small
+        >
+      </div>
+    </div>
+  </body>
+  <script src="app.js"></script>
 </html>
-<script src="app.js"></script>
