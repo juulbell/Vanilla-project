@@ -1,5 +1,5 @@
 let apiKey = "2b873762a1a6adb48de7a31bdbe782c2";
-let city = "Frankfurt";
+let city = "Hong kong";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 //The time of the day//
@@ -23,8 +23,24 @@ function formatDate(timestamp) {
     "Friday",
     "Saturday",
   ];
+  let months = [
+    "January",
+    "Febuary",
+    "Marts",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
+  let month = months[date.getDate()];
+  let dato = date.getUTCDate();
+  return `<strong>${day}</strong>, ${dato} ${month} (${hours}:${minutes})`;
 }
 
 //The Temperatur, city, wind, humidity//
