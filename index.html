@@ -14,15 +14,16 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- start of first container-->
     <div class="container">
+        
+      <!-- start of first container-->
       <div class="weather-big-container">
         <h1>City name</h1> 
         <div class="row">
           <div class="col-6">
             <ul>
-              <li>
-                Monday 24 April (19:30)
+              <li id="todayTime">
+                
               </li>
               <li>
                 Clear sky
@@ -51,7 +52,7 @@
           </div>
         </div>
         <!-- Search form -->
-
+<br>
         <form id="search-form" class="mb-3">
           <input
             type="search"
@@ -61,29 +62,29 @@
             autocomplete="off"
           />
           <input type="submit" value="Search" id="searchButton" />
+        <input type="submit" value="Location" id="locationButton" />
         </form>
       </div>
-      <!-- Buttons to shift the background on the weather-big-container -->
-      <div class="buttonsBackgrounds">
+    <!-- Buttons to shift the background on the weather-big-container -->
+    <div class="buttonsBackgrounds">
         <div class="row">
-          <div class="col-4">
-            <button id="morning" class="btn btn-outline-danger w-100">
-              Morning
-            </button>
-          </div>
-          <div class="col-4">
-            <button id="day" class="btn btn-outline-danger w-100">
-              Day
-            </button>
-          </div>
-          <div class="col-4">
-            <button id="night" class="btn btn-outline-danger w-100">
-              Night
-            </button>
-          </div>
+            <div class="col-4">
+                <button id="morning" class="w-100">
+                    Morning
+                </button>
+            </div>
+            <div class="col-4">
+                <button id="day" class="w-100">
+                    Day
+                </button>
+            </div>
+            <div class="col-4">
+                <button id="night" class="w-100">
+                    Night
+                </button>
+            </div>
         </div>
-      </div>
-
+    </div>
       <!-- small weather forcast container-->
       <div class="weather-small-container">
           <div class="weekdays">
