@@ -64,12 +64,6 @@ h1 {
   top: 25px;
 }
 
-.clearfix .units {
-  position: relative;
-  left: 2px;
-  font-size: 15px;
-}
-
 .buttonsBackgrounds {
   margin-top: 1px;
   padding: 0px;
@@ -128,8 +122,22 @@ h1 {
   color: black;
 }
 
-.clearfix img {
-  margin: 10px;
+.clearfix .units,
+#temperatur {
+  position: relative;
+  left: 5px;
+  font-size: 15px;
+}
+
+.clearfix {
   position: relative;
   top: 20px;
+}
+
+img {
+  width: 100%;
+}
+
+#upperIcon {
+  width: 40%;
 }
