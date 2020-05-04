@@ -18,15 +18,15 @@
         
       <!-- start of first container-->
       <div class="weather-big-container">
-        <h1>City name</h1> 
+        <h1 id="city"></h1> 
         <div class="row">
           <div class="col-6">
             <ul>
-              <li id="todayTime">
-                
+              <li >
+                Last updated: <span id="todayTime"></span>
               </li>
-              <li>
-                Clear sky
+              <li id="weatherDescription">
+
               </li>
             </ul>
           </div>
@@ -35,19 +35,19 @@
             <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="float-left"
                 id="weatherIconCloudy" />
               <div class="float-left">
-            <span id="temperature">56</span><span class="units"><a href="#" id="celsius-link" class="active">°C</a> |
+            <span id="temperature"></span><span class="units"><a href="#" id="celsius-link" class="active">°C</a> |
                 <a href="#" id="fahrenheit-link">°F</a></span>
             </div>
           </div>
         </div>
           <div class="col-12">
             <ul>
-              <li>
-                Humidity 30%
+                <li id="weatherHumidity">
               </li>
-              <li>
-                Wind 30 km/h
+              <li id="weatherWind">
               </li>
+            <li id="weathersunrise">
+            </li>
             </ul>
           </div>
         </div>
