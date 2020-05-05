@@ -24,6 +24,7 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let months = [
+    "December",
     "January",
     "February",
     "March",
@@ -35,7 +36,6 @@ function formatDate(timestamp) {
     "September",
     "October",
     "November",
-    "December",
   ];
   let day = days[date.getDay()];
   let month = months[date.getDate()];
@@ -74,8 +74,6 @@ function displayTemperatur(response) {
 }
 
 axios.get(apiUrl).then(displayTemperatur);
-
-//The search input //
 
 //The search input //
 
