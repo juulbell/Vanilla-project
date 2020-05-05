@@ -140,3 +140,12 @@ img {
 #upperIcon {
   width: 42%;
 }
+
+.clearfix .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.clearfix .active:hover {
+  text-decoration: none;
+}

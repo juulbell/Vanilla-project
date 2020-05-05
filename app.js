@@ -55,7 +55,9 @@ function displayTemperatur(response) {
   let dateElement = document.querySelector("#todayTime");
   let iconsElement = document.querySelector("#upperIcon");
 
-  temperaturElement.innerHTML = Math.round(response.data.main.temp);
+  celciusTemperatur = response.data.main.temp;
+
+  temperaturElement.innerHTML = Math.round(celciusTemperatur);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   windElement.innerHTML = `Wind: <strong>${Math.round(
@@ -93,3 +95,30 @@ function searchSubmit(event) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", searchSubmit);
+
+//Convert celcius to farenheit //
+
+function celciusElementLink(event) {
+  event.preventDefault();
+  TempConvCelcius.classList.add("active");
+  TempConvFarenheit.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celciusTemperatur);
+}
+
+function farenheitElementLink(event) {
+  event.preventDefault();
+  TempConvCelcius.classList.remove("active");
+  TempConvFarenheit.classList.add("active");
+  let farenheittemperatur = (celciusTemperatur * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(farenheittemperatur);
+}
+
+let celciusTemperatur = null;
+
+let TempConvCelcius = document.querySelector("#celsiusLink");
+TempConvCelcius.addEventListener("click", celciusElementLink);
+
+let TempConvFarenheit = document.querySelector("#fahrenheitLink");
+TempConvFarenheit.addEventListener("click", farenheitElementLink);
