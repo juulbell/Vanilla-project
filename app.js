@@ -1,5 +1,5 @@
 let apiKey = "2b873762a1a6adb48de7a31bdbe782c2";
-let city = "Hong kong";
+let city = "frankfurt";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 //The time of the day//
@@ -25,8 +25,8 @@ function formatDate(timestamp) {
   ];
   let months = [
     "January",
-    "Febuary",
-    "Marts",
+    "February",
+    "March",
     "April",
     "May",
     "June",
@@ -40,7 +40,7 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   let month = months[date.getDate()];
   let dato = date.getUTCDate();
-  return `<strong>${day}</strong>, ${dato} ${month} (${hours}:${minutes})`;
+  return `(${hours}:${minutes}) <br><strong>${day}</strong>, ${dato} of ${month}`;
 }
 
 //The Temperatur, city, wind, humidity//
@@ -58,11 +58,13 @@ function displayTemperatur(response) {
   temperaturElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
-  windElement.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
-  humidityElement.innerHTML = `Humidity: ${response.data.main.humidity}%`;
-  maxMimElement.innerHTML = `Max/Min Temp.: ${Math.round(
+  windElement.innerHTML = `Wind: <strong>${Math.round(
+    response.data.wind.speed
+  )} km/h </strong>`;
+  humidityElement.innerHTML = `Humidity: <strong>${response.data.main.humidity}%</strong>`;
+  maxMimElement.innerHTML = `Max/Min Temp.: <strong>${Math.round(
     response.data.main.temp_max
-  )}˚/${Math.round(response.data.main.temp_min)}˚`;
+  )}˚/${Math.round(response.data.main.temp_min)}˚ </strong>`;
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconsElement.setAttribute(
     "src",
@@ -72,3 +74,24 @@ function displayTemperatur(response) {
 }
 
 axios.get(apiUrl).then(displayTemperatur);
+
+//The search input //
+
+//The search input //
+
+function search(city) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  let apiKey = "2b873762a1a6adb48de7a31bdbe782c2";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperatur);
+}
+
+function searchSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", searchSubmit);

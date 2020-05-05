@@ -10,7 +10,7 @@ body {
   padding: 10px;
 }
 
-.weather-small-container {
+#forecast {
   border: 2px solid black;
   border-radius: 8px;
   max-width: 600px;
@@ -138,5 +138,5 @@ img {
 }
 
 #upperIcon {
-  width: 40%;
+  width: 42%;
 }
