@@ -15,42 +15,38 @@
   </head>
   <body>
     <div class="container">
-        
       <!-- start of first container-->
       <div class="weather-big-container">
-        <h1 id="city"></h1> 
+        <h1 id="city"></h1>
         <div class="row">
           <div class="col-6">
             <ul>
-              <li >
-                Last updated: <span id="todayTime"></span>
-              </li>
-              <li id="weatherDescription">
-              </li>
+              <li>Last updated: <span id="todayTime"></span></li>
+              <li id="weatherDescription"></li>
             </ul>
           </div>
           <div class="col-6">
-          <div class="clearfix">
-            <img src="" alt="icons" id="upperIcon" class="float-left" />
+            <div class="clearfix">
+              <img src="" alt="icons" id="upperIcon" class="float-left" />
               <div class="float-left">
-            <span id="temperature"></span><span class="units"><a href="#" id="celsiusLink" class="active">°C</a> |
-                <a href="#" id="fahrenheitLink">°F</a></span>
+                <span id="temperature"></span
+                ><span class="units"
+                  ><a href="#" id="celsiusLink" class="active">°C</a> |
+                  <a href="#" id="fahrenheitLink">°F</a></span
+                >
+              </div>
             </div>
           </div>
-        </div>
           <div class="col-12">
             <ul>
-                <li id="weatherHumidity">
-              </li>
-              <li id="weatherWind">
-              </li>
-            <li id="weatherMaxMin">
-            </li>
+              <li id="weatherHumidity"></li>
+              <li id="weatherWind"></li>
+              <li id="weatherMaxMin"></li>
             </ul>
           </div>
         </div>
         <!-- Search form -->
-<br>
+        <br />
         <form id="search-form" class="mb-3">
           <input
             type="search"
@@ -60,39 +56,43 @@
             autocomplete="off"
           />
           <input type="submit" value="Search" id="searchButton" />
-        <input type="submit" value="Location" id="locationButton" />
+          <input type="submit" value="Location" id="locationButton" />
         </form>
       </div>
-    <!-- Buttons to shift the background on the weather-big-container -->
-    <div class="buttonsBackgrounds">
+      <!-- Buttons to shift the background on the weather-big-container -->
+      <div class="buttonsBackgrounds">
         <div class="row">
-            <div class="col-4">
-                <button id="morning" class="w-100">
-                    Morning
-                </button>
-            </div>
-            <div class="col-4">
-                <button id="day" class="w-100">
-                    Day
-                </button>
-            </div>
-            <div class="col-4">
-                <button id="night" class="w-100">
-                    Night
-                </button>
-            </div>
+          <div class="col-4">
+            <button id="morning" class="w-100">
+              Morning
+            </button>
+          </div>
+          <div class="col-4">
+            <button id="day" class="w-100">
+              Day
+            </button>
+          </div>
+          <div class="col-4">
+            <button id="night" class="w-100">
+              Night
+            </button>
+          </div>
         </div>
-    </div>
-      <!-- small weather forcast container-->
-    <div class="row weather-forecast" id="forecast"></div>
       </div>
+      <!-- small weather forcast container-->
+      <div class="row weather-forecast" id="forecast"></div>
 
-      <div class="madeBy">
-        <small>
-          <a href="https://github.com/juulbell/Vanilla-project" target="_blank"
-            >Open source Code</a
-          > (Github), by Helene J.Belling</small
-        >
+      <div class="col-12">
+        <div class="madeBy">
+          <small>
+            <a
+              href="https://github.com/juulbell/Vanilla-project"
+              target="_blank"
+              >Open source Code</a
+            >
+            (Github), by Helene J.Belling</small
+          >
+        </div>
       </div>
     </div>
   </body>

@@ -20,6 +20,7 @@ body {
 }
 
 .madeBy {
+  text-align: left;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -133,8 +134,10 @@ h1 {
   top: 20px;
 }
 
-img {
-  width: 100%;
+.weather-forecast img {
+  display: block;
+  margin: 0 auto;
+  width: 60px;
 }
 
 #upperIcon {
@@ -148,4 +151,23 @@ img {
 
 .clearfix .active:hover {
   text-decoration: none;
+}
+
+.weather-forecast h3 {
+  color: rgb(33, 33, 33);
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  height: 15px;
+  line-height: 15px;
+  padding-top: 15px;
+}
+
+.weather-forecast .forecast-temperature {
+  color: rgb(33, 33, 33);
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  line-height: auto;
+  white-space: nowrap;
 }
