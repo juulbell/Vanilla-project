@@ -35,11 +35,10 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   let month = months[date.getMonth()];
   let dato = date.getUTCDate();
-  return `(${formatHours(
-    timestamp
-  )}) <br><strong>${day}</strong>, ${dato} of ${month}`;
+  return `(${hours}: ${minutes}) <br><strong>${day}</strong>, ${dato} of ${month}`;
 }
 
+//Forcast hours//
 function formatHours(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -93,6 +92,8 @@ function dispalyForecast(response) {
 
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
+    let max = Math.round(forecast.main.temp_max);
+    let min = Math.round(forecast.main.temp_min);
     forecastElement.innerHTML += `
     <div class="col-2">
       <h3>
@@ -104,10 +105,14 @@ function dispalyForecast(response) {
         }@2x.png"
       />
       <div class="forecast-temperature">
+      <span id="maxTemp">
         <strong>
-          ${Math.round(forecast.main.temp_max)}°
+          ${max}°
         </strong>
-        ${Math.round(forecast.main.temp_min)}°
+        </span>
+       <span id="minTemp"> 
+        ${min}°
+        </span>
       </div>
     </div>
   `;
@@ -132,12 +137,17 @@ function handleSubmit(event) {
 //Convert celcius to farenheit //
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
+  let temperatureElement = document.querySelector("#temperature");
+  let maxTempForcast = document.querySelector("#maxTemp");
+  let minTempForcast = document.querySelector("#minTemp");
   let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let maxTempForcastFarenheit = (max * 9) / 5 + 32;
+  let minTempForcastFarenheit = (min * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+  maxTempForcast.innerHTML = Math.round(maxTempForcastFarenheit);
+  minTempForcast.innerHTML = Math.round(minTempForcastFarenheit);
 }
 
 function displayCelsiusTemperature(event) {
@@ -145,8 +155,32 @@ function displayCelsiusTemperature(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
+  let maxTempForcast = document.querySelector("#maxTemp");
+  let minTempForcast = document.querySelector("#minTemp");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  maxTempForcast.innerHTML = Math.round(max);
+  minTempForcast.innerHTML = Math.round(min);
 }
+
+let max = null;
+let min = null;
+// Button location//
+
+function showPosition(position) {
+  let apiKey = "2b873762a1a6adb48de7a31bdbe782c2";
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(url).then(displayTemperature);
+}
+
+function getCurrentPosition(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+let ShowLocation = document.querySelector("#locationButton");
+ShowLocation.addEventListener("click", getCurrentPosition);
 
 let celsiusTemperature = null;
 
@@ -158,5 +192,3 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsiusLink");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
-search("Frankfurt");
