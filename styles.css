@@ -19,6 +19,13 @@ body {
   padding: 10px;
 }
 
+.smallForcast {
+  border: transparent;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .madeBy {
   text-align: left;
   max-width: 600px;
@@ -75,9 +82,8 @@ h1 {
 #morning,
 #day,
 #night {
-  background-color: #ffff;
+  background-color: transparent;
   border: transparent;
-  border-radius: 3px;
   padding: 0px;
   width: 100px;
   color: black;
@@ -86,38 +92,37 @@ h1 {
 #morning:hover,
 #day:hover,
 #night:hover {
-  background-color: #dc3545;
   color: #ffff;
 }
 
 #searchButton {
-  background-color: #ffff;
-  border: #dc3545 solid 2px;
-  border-radius: 3px;
+  background-color: transparent;
+  border: #f2f2f1 solid 2px;
+  border-radius: 8px;
   width: 90px;
   color: black;
 }
 #searchButton:hover {
-  background-color: #dc3545;
+  background-color: black;
   color: #ffff;
 }
 
 #locationButton {
-  background-color: #ffff;
-  border: #da7e87 solid 2px;
-  border-radius: 3px;
+  background-color: transparent;
+  border: #f2f2f1 solid 2px;
+  border-radius: 8px;
   width: 90px;
   color: black;
 }
 #locationButton:hover {
-  background-color: #da7e87;
+  background-color: #ec6e4c;
   color: #ffff;
 }
 
 #city-input {
-  background-color: #ffff;
-  border: #dc3545 solid 2px;
-  border-radius: 3px;
+  background-color: transparent;
+  border: black solid 2px;
+  border-radius: 8px;
   width: 200px;
   color: black;
 }
@@ -173,13 +178,13 @@ h1 {
 }
 
 #morgningDiv {
-  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+  background-image: linear-gradient(to top, #e14fad 0%, #f9d423 100%);
 }
 
 #dayDiv {
-  background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+  background-image: linear-gradient(to top, #50cc7f 0%, #f5d100 100%);
 }
 
 #nightDiv {
-  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
 }

@@ -65,25 +65,26 @@
       <div class="buttonsBackgrounds">
         <div class="row">
           <div class="col-4">
-            <button oneclick="morning()" class="w-100">
+            <button onclick="morning()" class="w-100" id="morning">
               Morning
             </button>
           </div>
           <div class="col-4">
-            <button oneclick="day()" class="w-100">
+            <button onclick="day()" class="w-100" id="day">
               Day
             </button>
           </div>
           <div class="col-4">
-            <button oneclick="night()" class="w-100">
+            <button onclick="night()" class="w-100" id="night">
               Night
             </button>
           </div>
         </div>
       </div>
       <!-- small weather forcast container-->
-      <div class="row weather-forecast" id="forecast"></div>
-
+      <div class="smallForcast">
+        <div class="row weather-forecast" id="forecast"></div>
+      </div>
       <div class="col-12">
         <div class="madeBy">
           <small>

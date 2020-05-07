@@ -106,9 +106,11 @@ function dispalyForecast(response) {
         }@2x.png"
       />
       <div class="forecast-temperature">
-      <span id="maxTemp-${index}">
+      <span id="maxTemp">
+      <strong>${max}˚</strong>
         </span>
-       <span id="minTemp-${index}"> 
+       <span id="minTemp"> 
+        ${min}˚
         </span>
       </div>
     </div>
@@ -140,15 +142,10 @@ function displayFahrenheitTemperature(event) {
 
   let feelsLikeElement = document.querySelector("#feels");
   let temperatureElement = document.querySelector("#temperature");
-  let maxTempForcast = document.querySelector("#maxTemp");
-  let minTempForcast = document.querySelector("#minTemp");
+
   let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
   let feelsLikeConvert = (FeelksLikeTemp * 9) / 5 + 32;
-  let maxTempForcastFarenheit = (max * 9) / 5 + 32;
-  let minTempForcastFarenheit = (min * 9) / 5 + 32;
 
-  maxTempForcast.innerHTML = Math.round(maxTempForcastFarenheit);
-  minTempForcast.innerHTML = Math.round(minTempForcastFarenheit);
   temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
   feelsLikeElement.innerHTML = `Feels like: <strong>${Math.round(
     feelsLikeConvert
@@ -162,11 +159,6 @@ function displayCelsiusTemperature(event) {
 
   let temperatureElement = document.querySelector("#temperature");
   let feelsLikeElement = document.querySelector("#feels");
-  let maxTempForcast = document.querySelector("#maxTemp");
-  let minTempForcast = document.querySelector("#minTemp");
-
-  maxTempForcast.innerHTML = Math.round(max);
-  minTempForcast.innerHTML = Math.round(min);
 
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
   feelsLikeElement.innerHTML = `Feels like: <strong>${Math.round(
@@ -198,14 +190,28 @@ function getCurrentPosition(event) {
 // Add button backgrounds//
 
 function morning() {
-  let backgroundColor = document.querySelector(".weather-big-container");
-  backgroundColor.setAttribute("id", "morgningDiv");
+  backgroundColorBig.setAttribute("id", "morgningDiv");
+  backgroundColorButtons.setAttribute("id", "morgningDiv");
+  backgroundColorSmall.setAttribute("id", "morgningDiv");
 }
 
 function day() {
-  let backgroundColor = document.querySelector(".weather-big-container");
-  backgroundColor.setAttribute("id", "dayDiv");
+  backgroundColorBig.setAttribute("id", "dayDiv");
+  backgroundColorButtons.setAttribute("id", "dayDiv");
+  backgroundColorSmall.setAttribute("id", "dayDiv");
 }
+
+function night() {
+  backgroundColorBig.setAttribute("id", "nightDiv");
+  backgroundColorButtons.setAttribute("id", "nightDiv");
+  backgroundColorSmall.setAttribute("id", "nightDiv");
+}
+
+// Added queastion "where are you from?"//
+
+let backgroundColorBig = document.querySelector(".weather-big-container");
+let backgroundColorButtons = document.querySelector(".buttonsBackgrounds");
+let backgroundColorSmall = document.querySelector(".smallForcast");
 
 let ShowLocation = document.querySelector("#locationButton");
 ShowLocation.addEventListener("click", getCurrentPosition);
