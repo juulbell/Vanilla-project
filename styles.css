@@ -171,3 +171,15 @@ h1 {
   line-height: auto;
   white-space: nowrap;
 }
+
+.morgning {
+  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+}
+
+.day {
+  background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+}
+
+.night {
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
