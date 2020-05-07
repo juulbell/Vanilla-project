@@ -35,7 +35,7 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   let month = months[date.getMonth()];
   let dato = date.getUTCDate();
-  return `(${hours}: ${minutes}) <br><strong>${day}</strong>, ${dato} of ${month}`;
+  return `(${hours}:${minutes}) <br><strong>${day}</strong>, ${dato} of ${month}`;
 }
 
 //Forcast hours//
@@ -93,6 +93,8 @@ function dispalyForecast(response) {
 
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
+    let max = Math.round(forecast.main.temp_max);
+    let min = Math.round(forecast.main.temp_min);
     forecastElement.innerHTML += `
     <div class="col-2">
       <h3>
@@ -104,13 +106,9 @@ function dispalyForecast(response) {
         }@2x.png"
       />
       <div class="forecast-temperature">
-      <span>
-        <strong>
-          ${response.main.temp_max}°
-        </strong>
+      <span id="maxTemp-${index}">
         </span>
-       <span> 
-         ${response.main.temp_min}°
+       <span id="minTemp-${index}"> 
         </span>
       </div>
     </div>
@@ -140,11 +138,17 @@ function displayFahrenheitTemperature(event) {
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
 
-  let temperatureElement = document.querySelector("#temperature");
   let feelsLikeElement = document.querySelector("#feels");
+  let temperatureElement = document.querySelector("#temperature");
+  let maxTempForcast = document.querySelector("#maxTemp");
+  let minTempForcast = document.querySelector("#minTemp");
   let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
   let feelsLikeConvert = (FeelksLikeTemp * 9) / 5 + 32;
+  let maxTempForcastFarenheit = (max * 9) / 5 + 32;
+  let minTempForcastFarenheit = (min * 9) / 5 + 32;
 
+  maxTempForcast.innerHTML = Math.round(maxTempForcastFarenheit);
+  minTempForcast.innerHTML = Math.round(minTempForcastFarenheit);
   temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
   feelsLikeElement.innerHTML = `Feels like: <strong>${Math.round(
     feelsLikeConvert
@@ -158,6 +162,11 @@ function displayCelsiusTemperature(event) {
 
   let temperatureElement = document.querySelector("#temperature");
   let feelsLikeElement = document.querySelector("#feels");
+  let maxTempForcast = document.querySelector("#maxTemp");
+  let minTempForcast = document.querySelector("#minTemp");
+
+  maxTempForcast.innerHTML = Math.round(max);
+  minTempForcast.innerHTML = Math.round(min);
 
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
   feelsLikeElement.innerHTML = `Feels like: <strong>${Math.round(
@@ -167,7 +176,7 @@ function displayCelsiusTemperature(event) {
 
 let max = null;
 let min = null;
-let feelsLikeConvert = null;
+let FeelksLikeTemp = null;
 let celsiusTemperature = null;
 // Button location//
 
@@ -188,8 +197,15 @@ function getCurrentPosition(event) {
 
 // Add button backgrounds//
 
-let dayBackground = document.querySelector("#day");
-dayBackground.addEventListener("submit", dayElementBackground);
+function morning() {
+  let backgroundColor = document.querySelector(".weather-big-container");
+  backgroundColor.setAttribute("id", "morgningDiv");
+}
+
+function day() {
+  let backgroundColor = document.querySelector(".weather-big-container");
+  backgroundColor.setAttribute("id", "dayDiv");
+}
 
 let ShowLocation = document.querySelector("#locationButton");
 ShowLocation.addEventListener("click", getCurrentPosition);
