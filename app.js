@@ -69,11 +69,11 @@ function displayTemperature(response) {
   temperaturElement.innerHTML = Math.round(celsiusTemperature);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
-  windElement.innerHTML = `Wind: <strong>${Math.round(
+  windElement.innerHTML = `🌬Wind: <strong>${Math.round(
     response.data.wind.speed
   )} km/h </strong>`;
-  humidityElement.innerHTML = `Humidity: <strong>${response.data.main.humidity}%</strong>`;
-  feelsLike.innerHTML = `Feels like: <strong>${Math.round(
+  humidityElement.innerHTML = `💧Humidity: <strong>${response.data.main.humidity}%</strong>`;
+  feelsLike.innerHTML = `😎Feels like: <strong>${Math.round(
     FeelksLikeTemp
   )}˚ </strong>`;
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
@@ -106,10 +106,10 @@ function dispalyForecast(response) {
         }@2x.png"
       />
       <div class="forecast-temperature">
-      <span id="maxTemp">
+      <span id="maxTemp-${index}">
       <strong>${max}˚</strong>
         </span>
-       <span id="minTemp"> 
+       <span id="minTemp-${index}"> 
         ${min}˚
         </span>
       </div>
@@ -147,9 +147,18 @@ function displayFahrenheitTemperature(event) {
   let feelsLikeConvert = (FeelksLikeTemp * 9) / 5 + 32;
 
   temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
-  feelsLikeElement.innerHTML = `Feels like: <strong>${Math.round(
+  feelsLikeElement.innerHTML = `😎Feels like: <strong>${Math.round(
     feelsLikeConvert
   )}˚</strong>`;
+
+  for (let index = 0; index < 6; index++) {
+    let maxElement = document.querySelector(`maxTemp-${index}`);
+    let minElement = document.querySelector(`minTemp-${index}`);
+    let maxConvert = (max * 9) / 5 + 32;
+    let minConvert = (min * 9) / 5 + 32;
+    maxElement.innerHTML = Math.round(maxConvert);
+    minElement.innerHTML = Math.round(minConvert);
+  }
 }
 
 function displayCelsiusTemperature(event) {
@@ -161,9 +170,16 @@ function displayCelsiusTemperature(event) {
   let feelsLikeElement = document.querySelector("#feels");
 
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  feelsLikeElement.innerHTML = `Feels like: <strong>${Math.round(
+  feelsLikeElement.innerHTML = `😎Feels like: <strong>${Math.round(
     FeelksLikeTemp
   )}˚</strong>`;
+
+  for (let index = 0; index < 6; index++) {
+    let maxElement = document.querySelector(`maxTemp-${index}`);
+    let minElement = document.querySelector(`minTemp-${index}`);
+    maxElement.innerHTML = Math.round(max);
+    minElement.innerHTML = Math.round(min);
+  }
 }
 
 let max = null;
@@ -206,8 +222,6 @@ function night() {
   backgroundColorButtons.setAttribute("id", "nightDiv");
   backgroundColorSmall.setAttribute("id", "nightDiv");
 }
-
-// Added queastion "where are you from?"//
 
 let backgroundColorBig = document.querySelector(".weather-big-container");
 let backgroundColorButtons = document.querySelector(".buttonsBackgrounds");

@@ -103,7 +103,7 @@ h1 {
   color: black;
 }
 #searchButton:hover {
-  background-color: black;
+  background-color: #48484a;
   color: #ffff;
 }
 
@@ -121,7 +121,7 @@ h1 {
 
 #city-input {
   background-color: transparent;
-  border: black solid 2px;
+  border: #f2f2f1 solid 2px;
   border-radius: 8px;
   width: 200px;
   color: black;
